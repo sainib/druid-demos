@@ -20,5 +20,14 @@ hdfs dfs -chmod 777 /tmp/hive-druid-handler.jar
 ```
 beeline> add jar hdfs:///tmp/hive-druid-handler.jar
 ```
-
+* SET the property to point to Druid Broker
+```
+SET hive.druid.broker.address.default=DRUID_BROKER_SERVER:8082;
+```
+* Run the query to create the table
+```
+CREATE EXTERNAL TABLE druid_table_1
+STORED BY 'org.apache.hadoop.hive.druid.DruidStorageHandler'
+TBLPROPERTIES ("druid.datasource" = "wikiticker");
+```
 
