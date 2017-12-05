@@ -2,7 +2,7 @@
 
 * Druid Index should alreay be existing 
  * Use wikiticker clickstream data for example. http://druid.io/docs/latest/tutorials/tutorial-batch.html
- * There is a json task decription file which points to another json data file. 
+ * There is a json task decription file which points to the json data file. The JSON data file MUST be on HDFS.. The path of in the index task file should point to the HDFS path. 
  * Run the task using following 
 ```
 curl -X 'POST' -H 'Content-Type:application/json' -d @my-index-task.json OVERLORD_IP:8090/druid/indexer/v1/task
