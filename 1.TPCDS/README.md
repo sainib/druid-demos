@@ -52,3 +52,19 @@ SET hive.druid.broker.address.default=birens4.field.hortonworks.com:8082;
 add jar hdfs:///tmp/hive-druid-handler.jar;
 https://github.com/Agirish/tpcds
 ```
+
+## Data Processing 
+
+```
+
+CREATE EXTERNAL TABLE druid_table_1
+STORED BY 'org.apache.hadoop.hive.druid.DruidStorageHandler'
+TBLPROPERTIES ("druid.datasource" = "wikiticker");
+
+
+
+curl -X 'POST' -H 'Content-Type:application/json' -d @w-index.json birens4.field.hortonworks.com:8090/druid/indexer/v1/task
+
+
+
+```
