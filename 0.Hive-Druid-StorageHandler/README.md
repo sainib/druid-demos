@@ -3,6 +3,17 @@
 * Druid Index should alreay be existing 
  * Use wikiticker clickstream data for example. http://druid.io/docs/latest/tutorials/tutorial-batch.html
  * There is a json task decription file which points to the json data file. The JSON data file MUST be on HDFS.. The path of in the index task file should point to the HDFS path. 
+
+ * Setup Hive LLAP and set the right value for the Hive Heap Mem. Make sure the following configs are set - 
+```
+HiveServer Interactive Heap Size = 2048 
+Number of nodes used by LLAP = 1 
+Maximum Total Concurrency = 1
+
+TEZ
+tez.runtime.io.sort.mb = 300 
+```
+
  * Run the following commands to create the druid index task file 
 ```
 cd /usr/hdp/2.6.3.0-235/druid/quickstart/
